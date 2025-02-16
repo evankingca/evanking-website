@@ -39,6 +39,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: builtSite
+        path: '.'
 
   # Single deploy job since we're just deploying
   deploy:
