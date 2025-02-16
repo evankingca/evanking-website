@@ -10,39 +10,32 @@ const includeFilesSrcPath = ["index.html", "pages/*.html"];
 const includeFilesWatchPath = ["index.html", "pages/*.html", "templates/*.html"];
 function includeFiles() {
 return gulp
-    .src(includeFilesSrcPath, { base: "./" })
+    .src(includeFilesSrcPath, { base: "" })
     .pipe(
     fileinclude({
         prefix: "@@",
         basepath: "@file",
     })
     )
-    .pipe(gulp.dest("dist"));
-}
-
-// INCLUDE FILES FOR BUILDING, OVERWRITES MAIN FILES!
-function bldIncludeFiles() {
-    return gulp
-        .src(includeFilesSrcPath, { base: "./" })
-        .pipe(
-        fileinclude({
-            prefix: "@@",
-            basepath: "@file",
-        })
-        )
-        .pipe(gulp.dest("./"));
-}
-
-// REMOVE TEMPLATES AFTER INCLUDING FILES. FOR BUILDING ONLY.
-function removeTemplates() {
-    return del(["templates"]);
+    .pipe(gulp.dest("dist/"));
 }
 
 // COMPILE AND MINIFY SASS
 const buildStylesSrcPath = ["css/style.scss", "css/fonts.scss"];
 const stylesWatchPath = ["css/*.scss"];
 function buildStyles() {
-  return gulp.src(buildStylesSrcPath, { base: "./" }).pipe(sass().on("error", sass.logError)).pipe(cleanCSS()).pipe(gulp.dest("./"));
+  return gulp.src(buildStylesSrcPath, { base: "./" }).pipe(sass().on("error", sass.logError)).pipe(cleanCSS()).pipe(gulp.dest("./dist"));
+}
+
+// MOVE FILES IN ROOT DIR TO DIST
+const moveFilesSrcPath = [
+    "fonts/*.css",
+    "fonts/*.woff2",
+    // "img/*",
+    "js/*"
+];
+function moveFiles() {
+  return gulp.src(moveFilesSrcPath, { base: "." }).pipe(gulp.dest("dist"));
 }
 
 // IT'S WATCHING YOU
@@ -52,7 +45,4 @@ function watchTasks() {
 }
 
 // EXPORT FOR WATCHING
-exports.default = gulp.series(includeFiles, buildStyles, watchTasks);
-
-// EXPORT FOR BUILDING ONLY
-exports.bld = gulp.series(bldIncludeFiles, removeTemplates, buildStyles);
+exports.default = gulp.series(includeFiles, buildStyles, moveFiles, watchTasks);
