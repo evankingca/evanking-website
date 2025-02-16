@@ -21,7 +21,6 @@ concurrency:
 
 jobs:
   build:
-    name: buildJob
     runs-on: ubuntu-latest
   
     steps:
@@ -44,9 +43,7 @@ jobs:
 
   # Single deploy job since we're just deploying
   deploy:
-    needs:
-      buildJob
-    name: deployJob
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
