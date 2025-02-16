@@ -46,3 +46,5 @@ function watchTasks() {
 
 // EXPORT FOR WATCHING
 exports.default = gulp.series(includeFiles, buildStyles, moveFiles, watchTasks);
+
+exports.bld = gulp.series(includeFiles, buildStyles, moveFiles);
