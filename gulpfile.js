@@ -1,0 +1,58 @@
+// REQUIRES
+const gulp = require("gulp");
+const fileinclude = require("gulp-file-include");
+const sass = require("gulp-sass")(require("sass"));
+const cleanCSS = require("gulp-clean-css");
+const del = require("del");
+
+// INCLUDE FILES
+const includeFilesSrcPath = ["index.html", "pages/*.html"];
+const includeFilesWatchPath = ["index.html", "pages/*.html", "templates/*.html"];
+function includeFiles() {
+return gulp
+    .src(includeFilesSrcPath, { base: "./" })
+    .pipe(
+    fileinclude({
+        prefix: "@@",
+        basepath: "@file",
+    })
+    )
+    .pipe(gulp.dest("dist"));
+}
+
+// INCLUDE FILES FOR BUILDING, OVERWRITES MAIN FILES!
+function bldIncludeFiles() {
+    return gulp
+        .src(includeFilesSrcPath, { base: "./" })
+        .pipe(
+        fileinclude({
+            prefix: "@@",
+            basepath: "@file",
+        })
+        )
+        .pipe(gulp.dest("./"));
+}
+
+// REMOVE TEMPLATES AFTER INCLUDING FILES. FOR BUILDING ONLY.
+function removeTemplates() {
+    return del(["templates"]);
+}
+
+// COMPILE AND MINIFY SASS
+const buildStylesSrcPath = ["css/style.scss", "css/fonts.scss"];
+const stylesWatchPath = ["css/*.scss"];
+function buildStyles() {
+  return gulp.src(buildStylesSrcPath, { base: "./" }).pipe(sass().on("error", sass.logError)).pipe(cleanCSS()).pipe(gulp.dest("./"));
+}
+
+// IT'S WATCHING YOU
+function watchTasks() {
+    gulp.watch(includeFilesWatchPath, includeFiles);
+    gulp.watch(stylesWatchPath, buildStyles);
+}
+
+// EXPORT FOR WATCHING
+exports.default = gulp.series(includeFiles, buildStyles, watchTasks);
+
+// EXPORT FOR BUILDING ONLY
+exports.bld = gulp.series(bldIncludeFiles, removeTemplates, buildStyles);

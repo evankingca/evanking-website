@@ -1,0 +1,3 @@
+Fonts for the home page. All fonts are from Google Fonts.
+I extracted just the character sets I needed from the Google stylesheets, and then
+downloaded them so I don't have to include gstatic cookies on the site.

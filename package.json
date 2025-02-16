@@ -1,0 +1,16 @@
+{
+  "name": "evan-website",
+  "author": "evan",
+  "private": true,
+  "scripts": {
+    "gulpbld": "gulp bld"
+  },
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-sass": "^6.0.0",
+    "sass": "^1.83.4",
+    "del": "^6.0.0"
+  }
+}

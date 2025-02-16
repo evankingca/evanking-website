@@ -1,0 +1,236 @@
+$fadeInDuration: 1.8s;
+$fadeInDelay: 0.6s;
+$whiteAcnt: #f0f0f0;
+$txtLight: #e2e2e2;
+
+// MAIN FONT
+@font-face {
+    font-family: 'Geist Mono';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url(/fonts/GeistMono.woff2) format('woff2');
+}
+  
+body {
+    background-color: black;
+    color: $txtLight;
+    margin: 0px 24px;
+    font-family: 'Geist Mono', 'Courier New', Courier, monospace;
+}
+
+:root {
+    scrollbar-color: black $whiteAcnt;
+}
+
+// UTIL CLASSES
+.tCenter {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+// GENERAL STYLES
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+a {
+    color: #3e5cbe;
+}
+
+a:hover {
+    text-decoration-thickness: 3px;
+}
+
+a:visited {
+    color: #3765ff;
+}
+
+// SPECIFIC STYLES
+.frameMargin {
+    margin: 40px 0px;
+}
+
+.bigTitle {
+    font-size: 7rem;
+    margin: 0px;
+}
+
+.hero {
+    margin: 150px 0px 100px 0px;
+}
+
+.contentSec {
+    max-width: 800px;
+    margin: auto;
+}
+
+.subTitle {
+    font-style: italic;
+}
+
+// HEADER AND FRAME
+.headerbar {
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 2;
+    .headerCont {
+        padding: 10px 40px;
+        background-color: $whiteAcnt;
+        border-radius: 16px 16px 0px 0px;
+        position: relative;
+        max-width: 550px;
+        margin: auto;
+        nav ul {
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;        
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            li {
+                a {
+                    color: #3e5cbe;
+                    font-size: 1.6rem;
+                }
+                a.cwl {
+                    font-weight: bold;
+                    text-decoration: underline double 2px;
+                }
+            }
+        }
+    }
+}
+
+// ANIMATION SHOULD ONLY HAPPEN ON THE HOMEPAGE
+.homepage .headerbar {
+    // SET DIFFERENT DEFAULTS FOR WHEN USING ANIMATIONS:
+    bottom: -120px;
+    animation-name: headerMoveIn;
+    animation-duration: $fadeInDuration;
+    animation-delay: $fadeInDelay;
+    animation-fill-mode: forwards;
+}
+
+.frame {
+    height: calc(100vh - 48px);
+    width: calc(100vw - 48px);
+    position: fixed;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    outline-style: solid;
+    outline-color: $whiteAcnt;
+    outline-width: 40px;
+    outline-offset: 0px;
+    border-radius: 6px;
+    top: 24px;
+    left: 24px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+// ANIMATION SHOULD ONLY HAPPEN ON THE HOMEPAGE
+.homepage .frame {
+    outline-width: 0px;
+    outline-offset: 32px;
+    border-radius: 0px;
+    animation-name: frameFadeIn;
+    animation-duration: $fadeInDuration;
+    animation-delay: $fadeInDelay;
+    animation-fill-mode: forwards;
+}
+
+.blackScreen {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+// ANIMATION SHOULD ONLY HAPPEN ON THE HOMEPAGE
+.homepage .blackScreen {
+    background-color: black;
+    animation-name: blackFadeOut;
+    animation-duration: $fadeInDuration;
+    animation-delay: $fadeInDelay;
+    animation-fill-mode: forwards;
+}
+
+.footer {
+    color: #ffffff3b;
+    font-size: 0.8rem;
+    margin-bottom: 31px;
+    margin-left: 9px;
+    p {
+        margin: 0px;
+    }
+}
+
+@keyframes frameFadeIn {
+    from {
+        outline-width: 0px;
+        // USING LARGER VALUES TO ENSURE SMOOTHER ANIMATIONS
+        outline-offset: 32px;
+        border-radius: 0px;
+    }
+    to {
+        // USING LARGER VALUES TO ENSURE SMOOTHER ANIMATIONS
+        outline-width: 40px;
+        outline-offset: 0px;
+        border-radius: 6px;
+    }
+}
+
+@keyframes blackFadeOut {
+    from {
+        background-color: black;
+    }
+    to {
+        background-color: transparent;
+    }
+}
+
+@keyframes headerMoveIn {
+    from {
+        bottom: -60px;
+    }
+    to {
+        bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .headerbar .headerCont nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @keyframes headerMoveIn {
+        from {
+            bottom: -120px;
+        }
+        to {
+            bottom: 0px;
+        }
+    }
+}

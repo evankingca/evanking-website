@@ -1,0 +1,229 @@
+/* USING PLAIN CSS VARS AS SASS VARS CAN'T BE REASSIGNED
+   IN A MEDIA QUERY */
+:root {
+    --sizeMultX: 1;
+    --sizeMultY: 1;
+}
+
+.fAfacad {
+    font-family: "Afacad Flux", serif;
+    font-size: calc(22rem * var(--sizeMultX));
+    margin-top: calc(155px * var(--sizeMultY));
+    margin-bottom: 10px;
+    line-height: 128%;
+}
+
+.fAmsterdam {
+    font-family: "New Amsterdam", serif;
+    font-size: calc(22rem * var(--sizeMultX));
+    margin-top: calc(185px * var(--sizeMultY));
+    margin-bottom: 10px;
+}
+
+.fBadeen {
+    font-family: "Badeen Display", serif;
+    font-weight: 400;
+    font-size: calc(22rem * var(--sizeMultX));
+    margin-top: calc(115px * var(--sizeMultY));
+    margin-bottom: 10px;
+}
+
+.fBungee {
+    font-family: "Bungee", serif;
+    font-size: calc(20rem * var(--sizeMultX));
+    margin-top: calc(180px * var(--sizeMultY));
+    margin-bottom: 10px;
+}
+
+.fDoto {
+    font-family: "Doto", serif;
+    font-size: calc(22rem * var(--sizeMultX));
+    margin-top: calc(175px * var(--sizeMultY));
+    margin-bottom: 10px;
+}
+
+.fFaculty {
+    font-family: "Faculty Glyphic", serif;
+    font-size: calc(19rem * var(--sizeMultX));
+    margin-top: calc(190px * var(--sizeMultY));
+    margin-bottom: 10px;
+}
+
+.fGummy {
+    font-family: "Sour Gummy", serif;
+    font-size: calc(23rem * var(--sizeMultX));
+    margin-top: calc(145px * var(--sizeMultY));
+    margin-bottom: 10px;
+    line-height: 125%;
+}
+
+.fLexend {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: calc(18rem * var(--sizeMultX));
+    margin-top: calc(210px * var(--sizeMultY));
+    margin-bottom: 30px;
+}
+
+.fOswald {
+    font-family: "Oswald", sans-serif;
+    font-size: calc(18rem * var(--sizeMultX));
+    margin-top: calc(160px * var(--sizeMultY));
+}
+
+.fParkinsans {
+    font-family: "Parkinsans", serif;
+    font-size: calc(20rem * var(--sizeMultX));
+    margin-top: calc(165px * var(--sizeMultY));
+    margin-bottom: 10px;
+}
+
+.fPlaywrite {
+    font-family: "Playwrite VN", serif;
+    font-size: calc(12rem * var(--sizeMultX));
+    margin-top: calc(250px * var(--sizeMultY));
+    line-height: 170%;
+    margin-bottom: 30px;
+}
+
+.fRaleway {
+    font-family: "Raleway", sans-serif;
+    font-size: calc(20rem * var(--sizeMultX));
+    margin-top: calc(205px * var(--sizeMultY));
+    margin-bottom: 20px;
+}
+
+.fSankofa {
+    font-family: "Sankofa Display", serif;
+    font-size: calc(21rem * var(--sizeMultX));
+    margin-top: calc(170px * var(--sizeMultY));
+    margin-bottom: 10px;
+    line-height: 130%;
+}
+
+.fSixtyfour {
+    font-family: "Sixtyfour", serif;
+    font-size: calc(14rem * var(--sizeMultX));
+    margin-top: calc(270px * var(--sizeMultY));
+    margin-bottom: 40px;
+    line-height: 135%;
+}
+
+.fSmooch {
+    font-family: "Smooch Sans", sans-serif;
+    font-size: calc(24rem * var(--sizeMultX));
+    margin-top: calc(185px * var(--sizeMultY));
+    line-height: 110%;
+}
+
+.fZilla {
+    font-family: "Zilla Slab", serif;
+    font-size: calc(22rem * var(--sizeMultX));
+    margin-top: calc(175px * var(--sizeMultY));
+    margin-bottom: 10px;
+}
+
+// WIDTHS
+
+@media screen and (max-width: 1400px) {
+    :root {
+        --sizeMultX: 0.9;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    :root {
+        --sizeMultX: 0.8;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    :root {
+        --sizeMultX: 0.7;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --sizeMultX: 0.6;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --sizeMultX: 0.5;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    :root {
+        --sizeMultX: 0.4;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --sizeMultX: 0.3;
+    }
+}
+
+// HEIGHTS
+
+@media screen and (min-height: 1201px) {
+    :root {
+        --sizeMultY: 1.5;
+    }
+}
+
+@media screen and (max-height: 1200px) {
+    :root {
+        --sizeMultY: 1.35;
+    }
+}
+
+@media screen and (max-height: 1100px) {
+    :root {
+        --sizeMultY: 1.25;
+    }
+}
+
+@media screen and (max-height: 1000px) {
+    :root {
+        --sizeMultY: 1;
+    }
+}
+
+@media screen and (max-height: 900px) {
+    :root {
+        --sizeMultY: 0.8;
+    }
+}
+
+@media screen and (max-height: 850px) {
+    :root {
+        --sizeMultY: 0.7;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    :root {
+        --sizeMultY: 0.6;
+    }
+}
+
+@media screen and (max-height: 750px) {
+    :root {
+        --sizeMultY: 0.5;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    :root {
+        --sizeMultY: 0.4;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    :root {
+        --sizeMultY: 0.30;
+    }
+}
