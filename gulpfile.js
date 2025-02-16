@@ -49,6 +49,8 @@ function moveFonts() {
 function watchTasks() {
     gulp.watch(includeFilesWatchPath, includeFiles);
     gulp.watch(stylesWatchPath, buildStyles);
+    gulp.watch(moveFilesSrcPath, moveFiles);
+    gulp.watch(moveFontsSrcPath, moveFonts);
 }
 
 // EXPORT FOR WATCHING
