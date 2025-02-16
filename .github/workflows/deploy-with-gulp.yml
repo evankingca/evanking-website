@@ -54,6 +54,11 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: builtSite
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          # Upload entire repository
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
