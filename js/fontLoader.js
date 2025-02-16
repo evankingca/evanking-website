@@ -22,7 +22,7 @@ fonts = [
 
 // CHOOSE FONT AT RANDOM AND FORMAT NAMES
 randomFont = Math.floor(Math.random()*fonts.length);
-fLink = `/fonts/${fonts[randomFont]}.css`
+fLink = `fonts/${fonts[randomFont]}.css`
 fName = `f${fonts[randomFont]}`
 
 // CREATE LINK ELEMENT
