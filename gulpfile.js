@@ -40,6 +40,7 @@ function moveFiles() {
 const moveNoEncodeSrcPath = [
     "fonts/*.css",
     "fonts/*.woff2",
+    "favicon.ico"
 ];
 function moveNoEncode() {
   return gulp.src(moveNoEncodeSrcPath, { base: ".", encoding: false }).pipe(gulp.dest("dist"));
