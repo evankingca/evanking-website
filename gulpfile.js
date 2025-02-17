@@ -37,12 +37,12 @@ function moveFiles() {
 }
 
 // FONTS REQUIRE ENCODING DISABLED TO WORK:
-const moveFontsSrcPath = [
+const moveNoEncodeSrcPath = [
     "fonts/*.css",
     "fonts/*.woff2",
 ];
-function moveFonts() {
-  return gulp.src(moveFontsSrcPath, { base: ".", encoding: false }).pipe(gulp.dest("dist"));
+function moveNoEncode() {
+  return gulp.src(moveNoEncodeSrcPath, { base: ".", encoding: false }).pipe(gulp.dest("dist"));
 }
 
 // IT'S WATCHING YOU
@@ -50,10 +50,10 @@ function watchTasks() {
     gulp.watch(includeFilesWatchPath, includeFiles);
     gulp.watch(stylesWatchPath, buildStyles);
     gulp.watch(moveFilesSrcPath, moveFiles);
-    gulp.watch(moveFontsSrcPath, moveFonts);
+    gulp.watch(moveNoEncodeSrcPath, moveNoEncode);
 }
 
 // EXPORT FOR WATCHING
-exports.default = gulp.series(includeFiles, buildStyles, moveFiles, moveFonts, watchTasks);
+exports.default = gulp.series(includeFiles, buildStyles, moveFiles, moveNoEncode, watchTasks);
 
-exports.bld = gulp.series(includeFiles, buildStyles, moveFiles, moveFonts);
+exports.bld = gulp.series(includeFiles, buildStyles, moveFiles, moveNoEncode);
