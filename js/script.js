@@ -1,9 +1,9 @@
 const mobileTransition = 550
 
 urls = {
-    "/dist/pages/resume.html": "resumeLink",
-    "/dist/index.html": "homeLink",
-    "/dist/pages/work.html": "otherLink"
+    "/resume": "resumeLink",
+    "/": "homeLink",
+    "/work": "otherLink"
 }
 
 function setHeaderLinkFormat() {
