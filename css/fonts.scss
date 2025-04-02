@@ -166,6 +166,18 @@
     }
 }
 
+@media screen and (max-width: 420px) {
+    :root {
+        --sizeMultX: 0.25;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    :root {
+        --sizeMultX: 0.20;
+    }
+}
+
 // HEIGHTS
 
 @media screen and (min-height: 1201px) {
