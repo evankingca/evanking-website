@@ -176,10 +176,13 @@ a:visited {
     animation-fill-mode: forwards;
 }
 
+.documentSize {
+    margin-bottom: 70px;
+}
+
 .footer {
     color: #ffffff3b;
     font-size: 0.8rem;
-    margin-bottom: 31px;
     margin-left: 9px;
     p {
         margin: 0px;
@@ -219,12 +222,6 @@ a:visited {
     }
 }
 
-@media screen and (max-width: 1100px) {
-    .footer {
-        margin-bottom: 60px;
-    }
-}
-
 @media screen and (max-width: 550px) {
     .headerbar .headerCont nav ul {
         flex-direction: column;
@@ -239,7 +236,7 @@ a:visited {
     }
 
 
-    .footer {
+    .documentSize {
         margin-bottom: 135px;
     }
 
