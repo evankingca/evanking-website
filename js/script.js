@@ -1,20 +1,27 @@
 const mobileTransition = 550
 
-urls = {
-    "/resume": "resumeLink",
-    "/": "homeLink",
-    "/work": "otherLink"
-}
+// ARRAY OF DOMAINS TO HIGHLIGHT LINKS FOR. NEEDED FOR
+// RELATIVE PATHS WHEN RUNNING ON DEV SERVER
+domains = [
+    "evanking.ca",
+    "localhost:8080"
+]
 
 function setHeaderLinkFormat() {
-    for (url in urls) {
-        if (window.location.pathname === url) {
-            boldedLinkEl = document.getElementById(urls[url])
-            boldedLinkEl.classList.add("cwl")
+    let header = document.getElementById("linksList")
+    
+    for (listItem of header.children) {
+        let link = listItem.firstChild
+        let url = new URL(link.href)
+        // GET ORIGIN DOMAIN, REMOVING THE PROTOCOL NAME
+        let originDomain = url.origin.substring(url.origin.lastIndexOf("/") + 1)
+
+        if (domains.includes(originDomain) && window.location.pathname === url.pathname) {
+            link.classList.add("cwl")
             if (window.innerWidth < mobileTransition) {
-                boldedLinkEl.classList.add("hidden")
+                link.classList.add("hidden")
             } else {
-                boldedLinkEl.classList.remove("hidden")
+                link.classList.remove("hidden")
             }
         }
     }
