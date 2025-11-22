@@ -13,10 +13,12 @@ function setHeaderLinkFormat() {
     for (listItem of header.children) {
         let link = listItem.firstChild
         let url = new URL(link.href)
+        let longLocation = window.location.pathname
+        let shortLocation = longLocation.replace(".html", "")
         // GET ORIGIN DOMAIN, REMOVING THE PROTOCOL NAME
         let originDomain = url.origin.substring(url.origin.lastIndexOf("/") + 1)
 
-        if (domains.includes(originDomain) && window.location.pathname === url.pathname) {
+        if (domains.includes(originDomain) && (url.pathname === longLocation || url.pathname === shortLocation)) {
             link.classList.add("cwl")
             if (window.innerWidth < mobileTransition) {
                 link.classList.add("hidden")
