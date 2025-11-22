@@ -4,7 +4,8 @@ const mobileTransition = 550
 // RELATIVE PATHS WHEN RUNNING ON DEV SERVER
 const domains = [
     "evanking.ca",
-    "localhost:8080"
+    "localhost:8080",
+    "localhost:1234"
 ]
 
 function setHeaderLinkFormat() {
