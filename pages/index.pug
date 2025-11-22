@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    head#head
+        include ../templates/metaTags.pug
+        title Evan King
+        meta(name='description' content='Hello, my name is Evan King, and I am currently a web development student at Algonquin College. I also do computer-graphics, sound mixing, and many of other things.')
+        script(defer='' src='/js/fontLoader.js')
+        link(rel='stylesheet' href='/css/fonts.scss')
+    body.homepage
+        main
+            h1#mainTitle.mainTitle Hello
+            p.tCenter.homeSubP
+                | My name is Evan King, and I am a full-stack web developer and current student at Algonquin College in Ottawa, Ontario. I also do 3D computer-graphics, sound mixing, and lots of other computer-related things.
+            include ../templates/header.pug
+            include ../templates/blackFadeOut.pug
