@@ -1,8 +1,8 @@
-headEl = document.getElementById("head")
-linkEl = document.createElement("link")
-titleEl = document.getElementById("mainTitle")
+const headEl = document.getElementById("head")
+const linkEl = document.createElement("link")
+const titleEl = document.getElementById("mainTitle")
 
-fonts = [
+const fonts = [
     "Playwrite",
     "Oswald",
     "Smooch",
@@ -21,9 +21,9 @@ fonts = [
 ]
 
 // CHOOSE FONT AT RANDOM AND FORMAT NAMES
-randomFont = Math.floor(Math.random()*fonts.length);
-fLink = `fonts/${fonts[randomFont]}.css`
-fName = `f${fonts[randomFont]}`
+const randomFont = Math.floor(Math.random()*fonts.length);
+const fLink = `fonts/${fonts[randomFont]}.css`
+const fName = `f${fonts[randomFont]}`
 
 // CREATE LINK ELEMENT
 linkEl.href = fLink
