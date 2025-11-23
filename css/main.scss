@@ -116,7 +116,7 @@ a:visited {
 }
 
 // ANIMATION SHOULD ONLY HAPPEN ON THE HOMEPAGE
-.homepage .headerbar {
+.homepage.firstLoad .headerbar {
     // SET DIFFERENT DEFAULTS FOR WHEN USING ANIMATIONS:
     bottom: -120px;
     animation-name: headerMoveIn;
@@ -144,7 +144,7 @@ a:visited {
 }
 
 // ANIMATION SHOULD ONLY HAPPEN ON THE HOMEPAGE
-.homepage .frame {
+.homepage.firstLoad .frame {
     outline-width: 0px;
     outline-offset: 32px;
     border-radius: 0px;
@@ -168,7 +168,7 @@ a:visited {
 }
 
 // ANIMATION SHOULD ONLY HAPPEN ON THE HOMEPAGE
-.homepage .blackScreen {
+.homepage.firstLoad .blackScreen {
     background-color: black;
     animation-name: blackFadeOut;
     animation-duration: $fadeInDuration;

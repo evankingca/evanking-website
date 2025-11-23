@@ -7,6 +7,15 @@ const domains = [
     "localhost:8080",
     "localhost:1234"
 ]
+const body = document.getElementById("body")
+
+function firstLoadManager() {
+    if (sessionStorage.getItem("hasVisited")) {
+        body.classList.remove("firstLoad")
+    } else {
+        sessionStorage.setItem("hasVisited", true)
+    }
+}
 
 function setHeaderLinkFormat() {
     const header = document.getElementById("linksList")
@@ -30,6 +39,7 @@ function setHeaderLinkFormat() {
     }
 }
 
+firstLoadManager()
 setHeaderLinkFormat()
 /* RUN SCRIPT ON WINDOW RESIZE, SO IF SOMEONE RESIZES THE WINDOW THE
    LINKS COME BACK */
